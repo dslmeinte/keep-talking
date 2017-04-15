@@ -1,0 +1,18 @@
+{
+  "name": "keep-talking",
+  "version": "0.0.1",
+  "description": "Mini-apps for the \"Keep Talking and Nobody Explodes\" game",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "author": "Meinte Boersma",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.1",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.7"
+  }
+}

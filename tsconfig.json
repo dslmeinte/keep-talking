@@ -1,0 +1,22 @@
+{
+    "version": "2.2.1",
+    "compilerOptions": {
+        "declaration": false,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "jsx": "react",
+        "module": "commonjs",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "outDir": "dist",
+        "sourceMap": false,
+        "strictNullChecks": true,
+        "target": "es5"
+    },
+    "exclude": [
+        "dist/**/*.d.ts", "node_modules/**/*.ts"
+    ]
+}
