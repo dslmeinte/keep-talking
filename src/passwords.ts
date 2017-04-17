@@ -12,7 +12,7 @@ for (let i = 0; i < allPasswordsAsString.length/5; i++) {
 
 
 function filterForPosition(candidates: string[], position: number, possibilities: string): string[] {
-    return candidates.filter(candidate => possibilities.indexOf(candidate.charAt(position)) > -1);
+    return candidates.filter(candidate => possibilities.indexOf(candidate.charAt(position - 1)) > -1);
 }
 
 

@@ -14,17 +14,15 @@ class ButtonToPress {
 
     constructor(private indicator: Indicator, private rank: number) {}
 
-    transition(): IButtonPress {
+    transition(askQuestion = true): IButtonPress | undefined {
         switch (this.indicator) {
             case Indicator.label: {
-                console.log(`\t==> press the button labeled: ${this.rank}`);
-                const position = parseInt(question(`\tposition=`), 10);
-                return { label: this.rank, position };
+                console.log(`\t==> press the button with LABEL: ${this.rank}`);
+                return askQuestion ? { label: this.rank, position: parseInt(question(`\tPOSITION=`), 10) } : undefined;
             }
             case Indicator.position: {
-                console.log(`\t==> press the button in position: ${this.rank}`);
-                const label = parseInt(question(`\tlabel=`), 10);
-                return { label, position: this.rank };
+                console.log(`\t==> press the button in POSITION: ${this.rank}`);
+                return askQuestion ? { label: parseInt(question(`\tLABEL=`), 10), position: this.rank } : undefined;
             }
         }
     }
@@ -105,7 +103,10 @@ function buttonToPress(currentStage: number, display: number): ButtonToPress {
 for (const currentStage of [1, 2, 3, 4, 5]) {
     console.log(`stage=${currentStage}:`);
     const display = parseInt(question("\tdisplay="), 10);
-    stages.push({ display, buttonPress: buttonToPress(currentStage, display).transition() });
+    const buttonPress = buttonToPress(currentStage, display).transition(currentStage < 5);
+    if (currentStage < 5) {
+        stages.push({ display, buttonPress: buttonPress! });
+    }
     console.log();
 }
 

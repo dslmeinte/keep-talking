@@ -3,7 +3,7 @@ import {question} from "readline-sync";
 
 function pressAndReleaseImmediately(): boolean {
     const buttonColour = question("button colour - [b]lue/[r]ed/[y]ellow/[w]hite: ");
-    const text = question("button text - [A]bort/[D]etonate/[H]old: ").toLowerCase();
+    const text = question("button text - [A]bort/[D]etonate/[H]old/[P]ress: ").toLowerCase();
 
     let batteries_: number | null = null;
     function batteries() {
