@@ -7,9 +7,19 @@ Right now, this help consists of an incomplete set of CLI-programs, running unde
 These programs are minimal in the sense that they work on a per-module basis, and they provide no error recovery.
 I.e., if you make a mistake using the program for a particular module, then the program will not alert to your mistake (e.g., a wrong input, even an irrelevant, extra character), and will also not record a *strike*.
 
+
+## Future work
+
 So far, only 4 of all 14 module types (of which 3 are needy) have been done.
 Not all modules are really suited for computerized help (m.n., Keypads, Venting Gas, Capacitor Discharge), in the sense that even with help you need a bit of skill and memorisation.
-Programs for the remaining module types will be added in a quasi-random order, probably driven by how much business logic there is to evaluate and take off of your hands while playing.
+Programs for the remaining module types will be added in a quasi-random order, probably driven by how much business logic there is to evaluate and take off of your hands while playing, or even more probably by how often I encounter certain modules when playing.
+
+
+### Even further away
+
+At some point, I might turn these CLI-programs into an app (with an "intuitive" UI of sorts - whatever that may mean).
+Currently, I can't be bothered about that, though: it's mostly "just work" and has little to do with coding up the "business logic" of the bomb defusal.
+Most modules don't require a UI, anyway - with the potential exception of Keypads.
 
 
 ## Installation

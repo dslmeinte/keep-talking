@@ -36,8 +36,11 @@ interface IStage {
 }
 
 
-const stages: IStage[] = [];
+const _previousStages: IStage[] = [];
 
+function previousStage(n: number): IStage {
+    return _previousStages[n - 1];
+}
 
 function buttonToPress(currentStage: number, display: number): ButtonToPress {
     switch (currentStage) {
@@ -56,16 +59,16 @@ function buttonToPress(currentStage: number, display: number): ButtonToPress {
         case 2: {
             switch (display) {
                 case 1: return new ButtonToPress(Indicator.label, 4);
-                case 2: return new ButtonToPress(Indicator.position, stages[1 - 1].buttonPress.position);
+                case 2: return new ButtonToPress(Indicator.position, previousStage(1).buttonPress.position);
                 case 3: return new ButtonToPress(Indicator.position, 1);
-                case 4: return new ButtonToPress(Indicator.position, stages[1 - 1].buttonPress.position);
+                case 4: return new ButtonToPress(Indicator.position, previousStage(1).buttonPress.position);
                 default: throw new Error();
             }
         }
         case 3: {
             switch (display) {
-                case 1: return new ButtonToPress(Indicator.label, stages[2 - 1].buttonPress.label);
-                case 2: return new ButtonToPress(Indicator.label, stages[1 - 1].buttonPress.label);
+                case 1: return new ButtonToPress(Indicator.label, previousStage(2).buttonPress.label);
+                case 2: return new ButtonToPress(Indicator.label, previousStage(1).buttonPress.label);
                 case 3: return new ButtonToPress(Indicator.position, 3);
                 case 4: return new ButtonToPress(Indicator.label, 4);
                 default: throw new Error();
@@ -74,10 +77,10 @@ function buttonToPress(currentStage: number, display: number): ButtonToPress {
         case 4: {
             const position = (() => {
                 switch (display) {
-                    case 1: return stages[1 - 1].buttonPress.position;
+                    case 1: return previousStage(1).buttonPress.position;
                     case 2: return 1;
-                    case 3: return stages[2 - 1].buttonPress.position;
-                    case 4: return stages[2 - 1].buttonPress.position;
+                    case 3: return previousStage(2).buttonPress.position;
+                    case 4: return previousStage(2).buttonPress.position;
                     default: throw new Error();
                 }
             })();
@@ -86,10 +89,10 @@ function buttonToPress(currentStage: number, display: number): ButtonToPress {
         case 5: {
             const label = (() => {
                 switch (display) {
-                    case 1: return stages[1 - 1].buttonPress.label;
-                    case 2: return stages[2 - 1].buttonPress.label;
-                    case 3: return stages[4 - 1].buttonPress.label;
-                    case 4: return stages[3 - 1].buttonPress.label;
+                    case 1: return previousStage(1).buttonPress.label;
+                    case 2: return previousStage(2).buttonPress.label;
+                    case 3: return previousStage(4).buttonPress.label;
+                    case 4: return previousStage(3).buttonPress.label;
                     default: throw new Error();
                 }
             })();
@@ -105,7 +108,7 @@ for (const currentStage of [1, 2, 3, 4, 5]) {
     const display = parseInt(question("\tdisplay="), 10);
     const buttonPress = buttonToPress(currentStage, display).transition(currentStage < 5);
     if (currentStage < 5) {
-        stages.push({ display, buttonPress: buttonPress! });
+        _previousStages.push({ display, buttonPress: buttonPress! });
     }
     console.log();
 }
