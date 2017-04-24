@@ -23,5 +23,5 @@ while (candidates.length > 1) {
     position++;
 }
 
-console.log(`password: ${candidates[0]}`);
+console.log(candidates.length === 0 ? 'no possibilities found for given input - try again' : `password: ${candidates[0]}`);
 

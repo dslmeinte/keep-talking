@@ -38,6 +38,7 @@ function coordEqual(arr1: number[], arr2: number[]): boolean {
     return arr1[0] === arr2[0] && arr1[1] === arr2[1];
 }
 
+let found = false;
 mazes.forEach((maze, idx) => {
     if (   (coordEqual(maze[0], green1) && coordEqual(maze[1], green2))
         || (coordEqual(maze[1], green1) && coordEqual(maze[0], green2))
@@ -52,6 +53,10 @@ mazes.forEach((maze, idx) => {
             str += "\n";
         }
         console.log(`Maze location in table in manual:\n${str}`);
+        found = true;
     }
 });
+if (!found) {
+    console.log('No maze matching given green locations: erroneous input?');
+}
 
