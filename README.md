@@ -10,7 +10,7 @@ I.e., if you make a mistake using the program for a particular module, then the 
 
 ## Future work
 
-So far, only 4 of all 14 module types (of which 3 are needy) have been done.
+So far, only 8 of all 14 module types (of which 3 are needy) have been done.
 Not all modules are really suited for computerized help (m.n., Keypads, Venting Gas, Capacitor Discharge), in the sense that even with help you need a bit of skill and memorisation.
 Programs for the remaining module types will be added in a quasi-random order, probably driven by how much business logic there is to evaluate and take off of your hands while playing, or even more probably by how often I encounter certain modules when playing.
 
@@ -27,7 +27,7 @@ Most modules don't require a UI, anyway - with the potential exception of Keypad
 Execute the following steps:
 
 1. Install [Node.js](https://nodejs.org/).
-2. (optional) Install [yarn](https://yarnpkg.com/) - as a replacement to NPM which comes pre-installed with Node.js
+2. (alternatively:) Install [yarn](https://yarnpkg.com/) - as a replacement to NPM which comes pre-installed with Node.js
 3. Run `npm install` and `npm run build` on the commandline.
 	Alternatively, with yarn: `yarn` and `yarn run build`.
 
@@ -37,11 +37,15 @@ Execute the following steps:
 In any terminal, execute `node dist/<M>` with `M` is one of the following:
 
 * `button`: "On the Subject of The Button" (p. 6)
+* `complicated-wires`: "On the Subject of Complicated Wires" (p. 13)
+* `mazes`: "On the Subject of Mazes" (p. 15)
 * `memory`: "On the Subject of Memory" (p. 11)
+* `morse-code`: "On the Subject of Morse Code" (p. 12)
 * `passwords`: "On the Subject of Passwords" (p. 16)
 * `simple-wires`: "On the Subject of Wires" (p. 5)
+* `wire-sequences`: "On the Subject of Wire Sequences" (p. 14)
 
-The titles and page numbers refer to the [Bomb Defusal Manual, version 1](http://www.bombmanual.com/).
+The titles and page numbers refer to the [Bomb Defusal Manual, version 1](http://www.bombmanual.com/), with verification code: 241.
 
 The program will ask questions which you can re-pose to your defuser.
 You have to follow the (implied) protocol in order for the program to work.
