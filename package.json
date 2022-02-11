@@ -9,10 +9,10 @@
   "author": "Meinte Boersma",
   "license": "MIT",
   "devDependencies": {
-    "@types/readline-sync": "^1.4.1",
-    "typescript": "^2.2.2"
+    "@types/readline-sync": "^1.4.4",
+    "typescript": "^4.5.5"
   },
   "dependencies": {
-    "readline-sync": "^1.4.7"
+    "readline-sync": "^1.4.10"
   }
 }

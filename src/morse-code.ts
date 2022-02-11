@@ -1,4 +1,4 @@
-import {question} from "readline-sync";
+import {question} from "readline-sync"
 
 
 const word2frequency: { [word: string]: string } = {
@@ -18,7 +18,7 @@ const word2frequency: { [word: string]: string } = {
     "sting": "3.592",
     "vector": "3.595",
     "beats": "3.600"
-};
+}
 
 
 const morse2char: { [code: string]: string } = {
@@ -48,38 +48,38 @@ const morse2char: { [code: string]: string } = {
     "-..-": "x",
     "-.--": "y",
     "--..": "z"
-};
+}
 
 function decodeMorse(ticker: string): string[] {
-    return ticker.split(" ").map(encoding => morse2char[encoding]).map(char => char === undefined ? "?" : char);
+    return ticker.split(" ").map(encoding => morse2char[encoding]).map(char => char === undefined ? "?" : char)
 }
 
 
-const char2morse: { [char: string]: string } = {};
+const char2morse: { [char: string]: string } = {}
 Object.keys(morse2char).forEach(morse => {
-    const char = morse2char[morse];
-    char2morse[char] = morse;
-});
+    const char = morse2char[morse]
+    char2morse[char] = morse
+})
 
 
 while (true) {
-    const input = question("Morse code (.-[ ]): ");
-    const chars = decodeMorse(input);
-    console.log(`   decodes to: ${chars.join("")}`);
-    const validChars = chars.filter(char => char !== "?");
-    const candidates = Object.keys(word2frequency).filter(word => validChars.every(char => word.indexOf(char) > -1));
+    const input = question("Morse code (.-[ ]): ")
+    const chars = decodeMorse(input)
+    console.log(`   decodes to: ${chars.join("")}`)
+    const validChars = chars.filter(char => char !== "?")
+    const candidates = Object.keys(word2frequency).filter(word => validChars.every(char => word.indexOf(char) > -1))
     if (candidates.length === 0) {
-        console.log(`   no candidates!`);
+        console.log(`   no candidates!`)
     } else if (candidates.length === 1) {
-        console.log(`   solution: ${candidates[0]} ==> ${word2frequency[candidates[0]]}`);
+        console.log(`   solution: ${candidates[0]} ==> ${word2frequency[candidates[0]]}`)
     } else {
-        console.log(`   possibilities: `);
+        console.log(`   possibilities: `)
         candidates.forEach(candidate => {
-            const missingChars = candidate.split("").filter(char => chars.indexOf(char) === -1);
-            const missingEncodings = missingChars.map(char => char2morse[char]);
-            console.log(`       ${candidate} ==> ${word2frequency[candidate]}; missing: ${missingChars.join("")} <== ${missingEncodings.join(" ")}`);
-        });
+            const missingChars = candidate.split("").filter(char => chars.indexOf(char) === -1)
+            const missingEncodings = missingChars.map(char => char2morse[char])
+            console.log(`       ${candidate} ==> ${word2frequency[candidate]}; missing: ${missingChars.join("")} <== ${missingEncodings.join(" ")}`)
+        })
     }
-    console.log();
+    console.log()
 }
 
